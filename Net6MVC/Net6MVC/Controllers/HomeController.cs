@@ -1,23 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Net6MVC.Data;
 using Net6MVC.Models;
+using Net6MVC.Models.Entity;
+using Net6MVC.Repository;
 using System.Diagnostics;
 
 namespace Net6MVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly TestDBContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger, TestDBContext context)
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
+            _unitOfWork= unitOfWork;
         }
 
         public IActionResult Index()
         {
+            var list = _unitOfWork.Repository<TblCompany>().GetAll();
             return View();
         }
 

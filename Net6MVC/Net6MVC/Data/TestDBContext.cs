@@ -14,6 +14,8 @@ namespace Net6MVC.Data
 	    > 上述完成後, 輸入 dotnet ef database update --project ProjectName (建立或更新DB)
          */
 
+        public TestDBContext() { }
+
         public TestDBContext(DbContextOptions<TestDBContext> options) : base(options)
         {
 

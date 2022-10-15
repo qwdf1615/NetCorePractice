@@ -157,4 +157,8 @@ FakesAssemblies/
 
 obj/
 
+#SqliteDB
+*.db-shm
+*.db-wal
+
 
