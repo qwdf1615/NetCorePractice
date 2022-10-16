@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "HashSetAndList_Test";
+}
+
+<h1>相同資料 字串99萬筆 兩者Contains結果</h1>
+
+<a id="btn_Test" class="btn btn-info">開始測試兩者效率</a>
+
+<h2>以Model進行查詢</h2>
+<div class="row mb-6">
+    <div class="col-2">HashSet耗費：</div>
+    <div class="col-2"> <p id="HashSetSencod"></p></div>
+</div>
+
+<div class="row mb-6">
+    <div class="col-2">List耗費：</div>
+    <div class="col-2"><p id="ListSencod"></p></div>
+</div>
+
+<h2>純string</h2>
+
+<div class="row mb-6">
+    <div class="col-2">HashSet耗費：</div>
+    <div class="col-2"> <p id="HashSetSencod2"></p></div>
+</div>
+
+<div class="row mb-6">
+    <div class="col-2">List耗費：</div>
+    <div class="col-2"><p id="ListSencod2"></p></div>
+</div>
+
+@section Scripts{
+<script>
+    $(function(){
+        $('#btn_Test').on('click', function()
+        {
+            $.ajax({
+                url: '/api/HashSetAndList',
+                type: 'GET',
+                error: function (xhr) { console.log('error', xhr) },
+                success: function (response) {
+                    $('#HashSetSencod').text(response[0] + '秒')
+                    $('#ListSencod').text(response[1] + '秒')
+                    $('#HashSetSencod2').text(response[2] + '秒')
+                    $('#ListSencod2').text(response[3] + '秒')
+                }
+            });
+        })
+    })
+
+</script>
+}
