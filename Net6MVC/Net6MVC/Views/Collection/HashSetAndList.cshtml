@@ -2,32 +2,26 @@
     ViewData["Title"] = "HashSetAndList_Test";
 }
 
-<h1>相同資料 字串99萬筆 兩者Contains結果</h1>
+<h1>新增資料效率(字串+流水號)</h1>
+<h2>新增前Contain判斷有無重複</h2>
+<h2>依序為 3、300、30000 筆</h2>
 
 <a id="btn_Test" class="btn btn-info">開始測試兩者效率</a>
 
-<h2>以Model進行查詢</h2>
+<h2>結果</h2>
 <div class="row mb-6">
     <div class="col-2">HashSet耗費：</div>
-    <div class="col-2"> <p id="HashSetSencod"></p></div>
+    <div class="col-4"> <p id="HashSetSencod"></p></div>
 </div>
 
 <div class="row mb-6">
     <div class="col-2">List耗費：</div>
-    <div class="col-2"><p id="ListSencod"></p></div>
+    <div class="col-4"><p id="ListSencod"></p></div>
 </div>
 
-<h2>純string</h2>
+<h3>HashSet：Search、Add、Remove 時間複雜度 O(1)</h3>
+<h3>List：Search、Add、Remove 時間複雜度 O(n)</h3>
 
-<div class="row mb-6">
-    <div class="col-2">HashSet耗費：</div>
-    <div class="col-2"> <p id="HashSetSencod2"></p></div>
-</div>
-
-<div class="row mb-6">
-    <div class="col-2">List耗費：</div>
-    <div class="col-2"><p id="ListSencod2"></p></div>
-</div>
 
 @section Scripts{
 <script>
@@ -41,8 +35,6 @@
                 success: function (response) {
                     $('#HashSetSencod').text(response[0] + '秒')
                     $('#ListSencod').text(response[1] + '秒')
-                    $('#HashSetSencod2').text(response[2] + '秒')
-                    $('#ListSencod2').text(response[3] + '秒')
                 }
             });
         })

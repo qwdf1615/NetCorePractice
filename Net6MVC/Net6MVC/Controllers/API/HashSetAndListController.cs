@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Net6MVC.Logic;
 using System.Diagnostics;
 
 namespace Net6MVC.Controllers.API
@@ -11,75 +12,23 @@ namespace Net6MVC.Controllers.API
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            Stopwatch sw = new Stopwatch();
-            HashSet<TestModel> hs = new HashSet<TestModel>();
-            List<TestModel> list = new List<TestModel>();
-            HashSet<string> hs2 = new HashSet<string>();
-            List<string> list2 = new List<string>();
+            int FirstCount = 3;
+            int SecondCount = 300;
+            int Count = 30000;
 
-            // 999,999
-            for (int i = 0; i < 999999; i++)
-            {
-                var model = new TestModel
-                {
-                    index = i,
-                    name = "name-" + i.ToString(),
-                };
-                hs.Add(model);
-                list.Add(model);
+            HashSetAndListLogic hashSetAndListLogic = new HashSetAndListLogic();
+            HashSet<string> hs = new HashSet<string>();
+            List<string> list = new List<string>();
 
-                hs2.Add("string-" + i.ToString());
-                list2.Add("string-" + i.ToString());
-            }
+            string result1 = hashSetAndListLogic.GetRunAddSecond(FirstCount, hs).ToString();
+            result1 += "、" + hashSetAndListLogic.GetRunAddSecond(SecondCount, hs).ToString();
+            result1 += "、" + hashSetAndListLogic.GetRunAddSecond(Count, hs).ToString();
 
-            sw.Reset();
-            sw.Start();
-            if (hs.Select(s => s.name).Contains("name-45678"))
-            {
-                var t = 1;
-            }
+            string result2 = hashSetAndListLogic.GetRunAddSecond(FirstCount, list).ToString();
+            result2 += "、" + hashSetAndListLogic.GetRunAddSecond(SecondCount, list).ToString();
+            result2 += "、" + hashSetAndListLogic.GetRunAddSecond(Count, list).ToString();
 
-            sw.Stop();
-
-            string result1 = sw.Elapsed.TotalMilliseconds.ToString();
-
-            sw.Reset();
-            sw.Start();
-            if (list.Select(s => s.name).Contains("name-45678"))
-            {
-                var t = 1;
-            }
-            sw.Stop();
-
-            string result2 = sw.Elapsed.TotalMilliseconds.ToString();
-
-            sw.Reset();
-            sw.Start();
-            if (hs2.Contains("string-67784"))
-            {
-                var t = 1;
-            }
-            sw.Stop();
-
-            string result3 = sw.Elapsed.TotalMilliseconds.ToString();
-
-            sw.Reset();
-            sw.Start();
-            if (list2.Contains("string-67784"))
-            {
-                var t = 1;
-            }
-            sw.Stop();
-
-            string result4 = sw.Elapsed.TotalMilliseconds.ToString();
-
-            return new string[] { result1, result2, result3, result4 };
-        }
-
-        public class TestModel
-        {
-            public int index { get; set; }
-            public string name { get; set; }
+            return new string[] { result1, result2 };
         }
     }
 }
