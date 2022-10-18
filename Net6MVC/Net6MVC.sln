@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net6MVC", "Net6MVC\Net6MVC.csproj", "{A0959961-3362-4855-A7A0-4A2E740DC6A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net6MVC", "Net6MVC\Net6MVC.csproj", "{A0959961-3362-4855-A7A0-4A2E740DC6A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{9F91E621-497C-4D2D-968A-B5A1E2CB72FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A0959961-3362-4855-A7A0-4A2E740DC6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0959961-3362-4855-A7A0-4A2E740DC6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0959961-3362-4855-A7A0-4A2E740DC6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F91E621-497C-4D2D-968A-B5A1E2CB72FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F91E621-497C-4D2D-968A-B5A1E2CB72FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F91E621-497C-4D2D-968A-B5A1E2CB72FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F91E621-497C-4D2D-968A-B5A1E2CB72FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

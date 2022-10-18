@@ -1,8 +1,9 @@
-﻿using System.Diagnostics;
+﻿using Services.Interface;
+using System.Diagnostics;
 
-namespace Net6MVC.Logic
+namespace Services
 {
-    public class HashSetAndListLogic
+    public class HashSetAndListService : IHashSetAndListService
     {
         public async Task<double> GetRunAddSecond(int count, HashSet<string> hs)
         {
@@ -10,12 +11,12 @@ namespace Net6MVC.Logic
             sw.Start();
 
             await Task.Run(() =>
-            {                
+            {
                 for (int i = 0; i < count; i++)
                 {
                     if (!hs.Contains(i.ToString()))
                         hs.Add("string-" + i);
-                }                
+                }
             });
 
             sw.Stop();

@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Net6MVC.Data;
 using Net6MVC.Repository;
+using Services;
+using Services.Interface;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +14,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<TestDBContext>(
     o => o.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Repository_UnitOfWokr
+// DI Repository_UnitOfWokr
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// DI Service
+builder.Services.AddScoped<IHashSetAndListService, HashSetAndListService>();
 
 // Identify Cooike
 builder.Services.AddAuthentication(options =>

@@ -4,16 +4,16 @@ using System.Linq.Expressions;
 
 namespace Net6MVC.Repository
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext _context { get; set; }
 
-        public GenericRepository() : this(new TestDBContext())
+        public Repository() : this(new TestDBContext())
         {
 
         }
 
-        public GenericRepository(DbContext context)
+        public Repository(DbContext context)
         {
             if (context == null)
                 throw new ArgumentNullException("context");

@@ -71,7 +71,7 @@ namespace Net6MVC.Repository
 
             if (!_repositories.ContainsKey(type))
             {
-                var repositoryType = typeof(GenericRepository<>);
+                var repositoryType = typeof(Repository<>);
 
                 var repositoryInstance =
                     Activator.CreateInstance(repositoryType
